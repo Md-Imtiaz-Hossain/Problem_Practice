@@ -1,5 +1,6 @@
 package onlinejudge.O1_hackerrank.java;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class O3_Loop2 {
@@ -10,7 +11,13 @@ public class O3_Loop2 {
             int a = in.nextInt();
             int b = in.nextInt();
             int n = in.nextInt();
-            System.out.println(a+b+n);
+            int sum = a;
+            for(int j=0;j<n;j++){
+                int value = (int) (Math.pow(2,j)*b);
+                sum = sum + value;
+                System.out.print(sum + " ");
+            }
+            System.out.println();
         }
         in.close();
     }
