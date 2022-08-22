@@ -1,4 +1,4 @@
-package books.O1_head_first_java.chapter_01.O5_Practice;
+package books.O1_head_first_java.chapter_01.O5_practice;
 
 public class Main {
     public static void main(String[] args) {

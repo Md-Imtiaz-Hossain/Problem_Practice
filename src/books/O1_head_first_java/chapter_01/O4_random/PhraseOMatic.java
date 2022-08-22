@@ -1,4 +1,4 @@
-package books.O1_head_first_java.chapter_01.O4_Random;
+package books.O1_head_first_java.chapter_01.O4_random;
 
 import java.util.Random;
 
