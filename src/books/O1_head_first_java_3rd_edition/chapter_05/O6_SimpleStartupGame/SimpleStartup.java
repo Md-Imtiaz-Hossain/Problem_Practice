@@ -1,4 +1,4 @@
-package books.O1_head_first_java_3rd_edition.chapter_04.O6_SimpleStartupGame;
+package books.O1_head_first_java_3rd_edition.chapter_05.O6_SimpleStartupGame;
 
 public class SimpleStartup {
     private int[] locationCells;

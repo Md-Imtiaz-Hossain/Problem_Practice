@@ -1,4 +1,4 @@
-package books.O1_head_first_java_3rd_edition.chapter_04;
+package books.O1_head_first_java_3rd_edition.chapter_05;
 
 public class O9_FoundCandidate {
     public static void main(String[] args) {
