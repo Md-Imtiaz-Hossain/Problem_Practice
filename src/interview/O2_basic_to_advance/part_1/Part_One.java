@@ -183,7 +183,7 @@ class O1 {
     }
 }
 
-public class PartOne {
+public class Part_One {
     public static void main(String[] args) {
         System.out.println("Welcome to this 100 programme solution Repo");
     }
