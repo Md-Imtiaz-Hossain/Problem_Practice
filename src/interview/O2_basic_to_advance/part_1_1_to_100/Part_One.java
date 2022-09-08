@@ -1,8 +1,122 @@
-package interview.O2_basic_to_advance.part_1;
+package interview.O2_basic_to_advance.part_1_1_to_100;
 
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Scanner;
+
+
+/**
+ * We can compare String in Java on the basis of content and reference.
+ *
+ * 1)  equals() Method:
+ * The String class equals() method compares the original content of the string. It compares values of string for equality.
+ *
+ * 2)  compareTo() method::
+ * The String class compareTo() method compares values lexicographically and returns an integer value that describes if
+ * first string is less than,equal to or greater than second string. Suppose s1 and s2 are two String objects. If:
+ * s1 == s2 : The method returns 0.
+ * s1 > s2 : The method returns a positive value.
+ * s1 < s2 : The method returns a negative value.
+ *
+ * 2)  == operator:
+ * The == operator compares references not values.
+ *
+ */
+class O15{
+    public static void main(String[] args) {
+
+        String first = "Imtiaz";
+        String second = "Md Imtiaz Hossain";
+        String third = "ImtiaZ";
+        String fourth = new String("Imtiaz");
+        String five = first;
+        String six = new String("Imtiaz");
+        String seven = "Imtiaz";
+
+
+        // 1) By Using equals() Method --> value
+        System.out.println(first.equals(third));
+        System.out.println(first.equalsIgnoreCase(third));
+        System.out.println();
+
+        // 2) By Using compareTo() method --> value
+        if (first.compareTo(second) > 0){
+            System.out.println("First string comes first");
+        }else if(first.compareTo(second) < 0){
+            System.out.println("Second String comes first");
+        }else {
+            System.out.println("Strings are equal");
+        }
+        System.out.println();
+
+        // 2) By Using == operator --> references
+        System.out.println(first == five);
+        System.out.println(six == fourth);
+        System.out.println(first == seven);
+        // why it returns true --> https://stackoverflow.com/questions/10578984/what-is-java-string-interning
+        // https://en.wikipedia.org/wiki/String_interning#:~:text=In%20computer%20science%2C%20string%20interning,string%20is%20created%20or%20interned.
+    }
+}
+
+/**
+ * Q14. Factorial
+ */
+class O14 {
+    public static void main(String[] args) {
+        int number = 5;
+        int sum = 1;
+        for (int i = 1; i <= number; i++) {
+            if (number == 0) {
+                System.out.println("Number is - " + number);
+            } else {
+                sum = sum * i;
+            }
+        }
+        System.out.println(sum);
+    }
+}
+
+/**
+ * Odd and Even Number
+ */
+class O13 {
+    public static void main(String[] args) {
+        int number = 20;
+        if (number % 2 == 0) {
+            System.out.println("Even");
+        } else {
+            System.out.println("Odd");
+        }
+    }
+}
+
+/**
+ * Nested If else
+ */
+class O11_O12 {
+    public static void main(String[] args) {
+        int passMark = 40, marksObtained;
+        char grade;
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter obtain Mark: ");
+        marksObtained = sc.nextInt();
+
+        if (marksObtained >= passMark) {
+            if (marksObtained > 90)
+                grade = 'A';
+            else if (marksObtained > 75)
+                grade = 'B';
+            else if (marksObtained > 60)
+                grade = 'C';
+            else
+                grade = 'D';
+            System.out.println("You passed the exam and your grade is " + grade);
+        } else {
+            System.out.println("Fail");
+        }
+    }
+}
 
 /**
  * Q10. If Else
