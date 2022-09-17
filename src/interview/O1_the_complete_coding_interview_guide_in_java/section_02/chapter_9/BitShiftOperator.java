@@ -50,6 +50,40 @@ public class BitShiftOperator {
         a = a ^ b ^ (b = a); // XOR[^]
         a = (a * b) / (b = a);
         System.out.println(a + " " + b);
+    }
+}
+
+/**
+ * The sign bit 0 represents a positive number, and 1 represents a negative number.
+ * So after performing >> on a positive number, we get a positive value in the result also.
+ * When we perform >> on a negative number, again we get a negative value.
+ *
+ * >> is arithmetic shift right,
+ * >>> is logical shift right.
+ *
+ *
+ * The signed left shift operator "<<" shifts a bit pattern to the left,
+ * and the signed right shift operator ">>" shifts a bit pattern to the right.
+ * The unsigned right shift operator ">>>" shifts a zero into the leftmost position,
+ * while the leftmost position after ">>" depends on sign extension.
+ *
+ * When we apply >>> on a positive number, it gives the same output as that of >>.
+ * It gives a positive number when we apply >>> on a negative number. MSB is replaced by a 0.
+ *
+ * Why doesn't Java support the <<< (unsigned left shift) operator, but does support the >>> (unsigned right shift) operator?
+ * That is because when you left shift the bits , the leftmost bit (AKA SIGNED Bit) is lost anyway.
+ * Since unsigned left shift operator would do exactly the same thing as the existing left shift operator, we don't have it.
+ */
+class BitUnsignedShiftOperator {
+    public static void main(String[] args) {
+        byte x, y;
+        x=10;
+        y=-10;
+        System.out.println("Bitwise Left Shift: x<<2 = "+(x<<2));
+        System.out.println("Bitwise Right Shift: x>>2 = "+(x>>2));
+        System.out.println("Bitwise Zero Fill Right Shift: x>>>2 = "+(x>>>2));
+        System.out.println("Bitwise Zero Fill Right Shift: y>>>2 = "+(y>>>2));
+        //System.out.println("Bitwise Zero Fill Right Shift: y>>>2 = "+(y <<< 2)); // did not support
 
     }
 }
