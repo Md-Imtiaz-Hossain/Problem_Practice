@@ -7,6 +7,80 @@ import java.util.stream.IntStream;
 
 
 /**
+ * Q23. Working with ASCII Table
+ */
+class O23{
+    public static void main(String[] args) {
+        char character;
+
+        for (character = 'a' ; character <= 'z' ; character++){
+            System.out.print(character + " ");
+        }
+        System.out.println();
+        for (character = 'a' ; character <= 'z' ; character++){
+            int i=character;
+            System.out.print(i + " ");
+        }
+        System.out.println("\n");
+
+
+        for (character = 'A' ; character <= 'Z' ; character++){
+            System.out.print(character + " ");
+        }
+        System.out.println();
+
+
+        for (character = 'A' ; character <= 'Z' ; character++){
+            int i=character;
+            System.out.print(i + " ");
+        }
+        System.out.println("\n");
+
+
+        for (int i = 0 ; i <= 127 ; i++){
+            char c = (char) i;
+            System.out.println(i + " --> " + c);
+        }
+
+
+
+    }
+}
+
+
+/**
+ * Q21 22: Break and continue statement
+ *
+ * The break statement is used to terminate the loop immediately. Break keyword is used to indicate break statements in java programming.
+ * The continue statement is used to skip the current iteration of the loop. Continue keyword is used to indicate continue statement in java programming.
+ *
+ * Output:
+ * 0 1 2 3 4
+ * 0 1 2 3 4 6 7 8 9
+ */
+class O21_O22{
+    public static void main(String[] args) {
+        // Break
+        for (int i = 0 ; i < 10 ; i++){
+            if (i == 5){
+                break;
+            }
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        // Continue
+        for (int i = 0 ; i < 10 ; i++){
+            if (i == 5){
+                continue;
+            }
+            System.out.print(i + " ");
+        }
+    }
+}
+
+
+/**
  * Q20. Print reverse number
  * <p>
  * Iteration:
@@ -29,17 +103,14 @@ class O20 {
         reverse(145);
         System.out.println(reverseNumber);
     }
-
     static int reverseNumber = 0; // stores reversed number
     static void reverse(int n) {
         if (n <= 0)
             return;
-        int rem = n % 10;
-        reverseNumber = (reverseNumber * 10) + rem;
+        int reminder = n % 10;
+        reverseNumber = (reverseNumber * 10) + reminder;
         reverse(n / 10);
     }
-
-
 }
 
 /**
