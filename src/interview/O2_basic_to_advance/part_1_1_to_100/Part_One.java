@@ -5,64 +5,221 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
+/**
+ * Q29. Working with Substring
+ *
+ * i. All substring
+ * ii. Substring with range
+ * iii. Last substring check
+ * iv. String Palindrome or not
+ */
+
+class O29_Substring {
+    public static void main(String[] args) {
+        //--------------------------------   Find all substring
+        String string = "Imtiaz";
+        String sub;
+        for (int c = 0; c < string.length(); c++) {
+            for (int i = 1; i <= string.length() - c; i++) {
+                sub = string.substring(c, c + i);
+                System.out.println(sub);
+            }
+        }
+        System.out.println("\n");
+
+
+        //-------------------------------   Find substring with range
+        String string2 = "Khan";
+        System.out.println(string2);
+        System.out.println(string2.substring(1));
+        System.out.println(string2.substring(2, 3));
+        System.out.println("\n");
+
+        //------------------------------    Surname check or find out which last name is Sing
+        String listOfName[] = {"Praveen Kumar", "Virat Singh", "Harbhajan Singh", "Gurjit Singh", "Virat Kohli", "Rohit Sharma", "Sandeep Singh", "Milkha Singh"};
+        String surName = "Singh";
+
+        for (int j = 0; j < listOfName.length; j++) {
+            String subStr = listOfName[j].substring(listOfName[j].length() - surName.length());
+            if (subStr.equals(surName)) {
+                System.out.println(listOfName[j]);
+            }
+        }
+        System.out.println("\n");
+
+
+        // -------------------------------   String Palindrome or not
+        String originalString = "madam";
+        String reverseString = "";
+
+        for (int i = originalString.length()-1 ; i >= 0 ; i--){
+            reverseString = reverseString + originalString.charAt(i);
+        }
+        if (originalString.equals(reverseString)){
+            System.out.println("palindrome");
+        }else
+            System.out.println("Not palindrome");
+
+
+    }
+}
+
+/**
+ * Q27. Armstrong or Not
+ * An Armstrong number is a positive m-digit number that is equal to the sum of the mth powers of their digits.
+ * It is also known as pluperfect, or Plus Perfect, or Narcissistic number. It is an EIS sequence A005188. Let’s understand it through an example.
+ * Armstrong Number Example
+ * 153: 1^3 + 5^3 + 3^3 = 1 + 125+ 27 = 153 (Armstrong Number)
+ * 125: 1^3 + 2^3 + 5^3 = 1 + 8 + 125 = 134 (Not an Armstrong Number)
+ * <p>
+ * 125:
+ * 1st Iteration: reminder = 5, sum = 125, number = 12
+ * 1st Iteration: reminder = 2, sum = 125+8=133, number = 1
+ * 1st Iteration: reminder = 1, sum = 133+1=134, number = 0 ; while function not execute
+ */
+class O27 {
+    public static void main(String args[]) {
+        int number = 153;
+        int temp = number;
+        int sum = 0;
+
+        // function to calculate the sum of individual digits
+        while (number > 0) {
+            int reminder = number % 10;
+            sum = (sum) + (reminder * reminder * reminder);
+            number = number / 10;
+        }
+
+        // condition to check whether the value of P equals to user input or not.
+        if (temp == sum) {
+            System.out.println("Yes. It is Armstrong Number.");
+        } else {
+            System.out.println(
+                    "No. It is not an Armstrong Number");
+        }
+    }
+}
+
+/**
+ * Q26. Prime or not
+ * A prime number is a number that is divisible by only two numbers: 1 and itself.
+ * So, if any number is divisible by any other number, it is not a prime number.
+ */
+class O26 {
+    public static void main(String[] args) {
+
+        int num = 10;
+        boolean flag = false;
+        for (int i = 2; i < num; i++) {
+            if (num % i == 0) {
+                flag = true;
+                break;
+            }
+        }
+
+        if (!flag)
+            System.out.println(num + " is a prime number.");
+        else
+            System.out.println(num + " is not a prime number.");
+
+    }
+}
+
+/**
+ * Q25. Multiplication table
+ */
+class O25 {
+    public static void main(String[] args) {
+        int c = 5;
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i + " X " + c + " = " + i * c);
+        }
+        System.out.println();
+    }
+}
+
+/**
+ * Q 24. Enhanced for loop
+ * <p>
+ * Normal Loop // Enhanced for loop
+ * present from JDK1 // present from JDK5
+ * we can increase the counter as per our wish //  But enhanced for loop will always increase by one.
+ * we can iterate on any container object // We can only iterate on which implement the iterable interface.
+ * we can iterate in both decrement or increment order // But we can iterate only in increment order.
+ * we can replace elements at any specific index // we don’t have access to the index, so we cannot replace elements at any specific index.
+ * we can print array elements either in the original order or in reverse order //  we can print array element only in the original order, not in reverse order
+ */
+class O24 {
+    public static void main(String[] args) {
+
+        int primes[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
+        for (int t : primes) {
+            System.out.println(t);
+        }
+        System.out.println();
+
+        String languages[] = {"C", "C++", "Java", "Python", "Ruby"};
+        for (String sample : languages) {
+            System.out.println(sample);
+        }
+
+    }
+}
 
 /**
  * Q23. Working with ASCII Table
  */
-class O23{
+class O23 {
     public static void main(String[] args) {
         char character;
 
-        for (character = 'a' ; character <= 'z' ; character++){
-            System.out.print(character + " ");
-        }
-        System.out.println();
-        for (character = 'a' ; character <= 'z' ; character++){
-            int i=character;
-            System.out.print(i + " ");
-        }
-        System.out.println("\n");
-
-
-        for (character = 'A' ; character <= 'Z' ; character++){
+        // print a to z
+        for (character = 'a'; character <= 'z'; character++) {
             System.out.print(character + " ");
         }
         System.out.println();
 
-
-        for (character = 'A' ; character <= 'Z' ; character++){
-            int i=character;
+        // print a's decimal value to z's decimal value
+        for (character = 'a'; character <= 'z'; character++) {
+            int i = character;
             System.out.print(i + " ");
         }
         System.out.println("\n");
 
+        for (character = 'A'; character <= 'Z'; character++) {
+            System.out.print(character + " ");
+        }
+        System.out.println();
 
-        for (int i = 0 ; i <= 127 ; i++){
+        for (character = 'A'; character <= 'Z'; character++) {
+            int i = character;
+            System.out.print(i + " ");
+        }
+        System.out.println("\n");
+
+        for (int i = 0; i <= 127; i++) {
             char c = (char) i;
             System.out.println(i + " --> " + c);
         }
-
-
-
     }
 }
 
 
 /**
  * Q21 22: Break and continue statement
- *
+ * <p>
  * The break statement is used to terminate the loop immediately. Break keyword is used to indicate break statements in java programming.
  * The continue statement is used to skip the current iteration of the loop. Continue keyword is used to indicate continue statement in java programming.
- *
+ * <p>
  * Output:
  * 0 1 2 3 4
  * 0 1 2 3 4 6 7 8 9
  */
-class O21_O22{
+class O21_O22 {
     public static void main(String[] args) {
         // Break
-        for (int i = 0 ; i < 10 ; i++){
-            if (i == 5){
+        for (int i = 0; i < 10; i++) {
+            if (i == 5) {
                 break;
             }
             System.out.print(i + " ");
@@ -70,8 +227,8 @@ class O21_O22{
         System.out.println();
 
         // Continue
-        for (int i = 0 ; i < 10 ; i++){
-            if (i == 5){
+        for (int i = 0; i < 10; i++) {
+            if (i == 5) {
                 continue;
             }
             System.out.print(i + " ");
@@ -91,19 +248,21 @@ class O21_O22{
 class O20 {
     public static void main(String[] args) {
         int number = 145;
-        int result = 0;
+        int sum = 0;
         while (number != 0) {
             int reminder = number % 10;
-            result = result * 10 + reminder;
+            sum = sum * 10 + reminder;
             number = number / 10;
         }
-        System.out.println(result);
+        System.out.println(sum);
 
         // Using recursion
         reverse(145);
         System.out.println(reverseNumber);
     }
+
     static int reverseNumber = 0; // stores reversed number
+
     static void reverse(int n) {
         if (n <= 0)
             return;
