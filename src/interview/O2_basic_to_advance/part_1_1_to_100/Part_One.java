@@ -6,16 +6,326 @@ import java.util.Scanner;
 import java.util.stream.IntStream;
 
 /**
- * Q29. Working with Substring
+ *  Q49. Exception handling
+ *  Q50. Throw exception
  *
+ */
+class O49_50_Exception{
+    public static void main(String[] args) {
+        int a = 5;
+        int b = 2;
+
+        // Exception handling
+        try{
+            System.out.println(a/b);
+        }catch (Exception e){
+            System.out.println("Division by zero");
+        }
+
+        // Throw exception
+        validate(3);
+        validate(-3);
+
+    }
+    static void validate(int age){
+        if(age<0)
+            throw new ArithmeticException("not valid");
+        else
+            System.out.println("welcome to vote on Dynamic solution");
+    }
+}
+
+
+/**
+ * Q47 48. constructor and overloading
+ */
+class O47_48_Constructor_Overloading{
+
+    private String name;
+    void O45_Static_Instance_Method(){
+        System.out.println("Constructor method called");
+    }
+    public O47_48_Constructor_Overloading(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static void main(String[] args) {
+        O47_48_Constructor_Overloading s = new O47_48_Constructor_Overloading("Imtiaz");
+        System.out.println(s.getName());
+        s.O45_Static_Instance_Method();
+
+    }
+
+
+
+}
+
+/**
+ * Q45. Static and instance method
+ * Q46. Create multiple class
+ */
+
+class O45_Static_Instance_Method{
+    public static void main(String[] args) {
+        // No need to create object
+        m1();
+
+        // Need to create object
+        O45_Static_Instance_Method s = new O45_Static_Instance_Method();
+        s.m2();
+
+        test t = new test();
+    }
+    static void m1() {
+        System.out.println("Called from m1 static method");
+    }
+    void m2(){
+        System.out.println("Called from m2 instance method");
+    }
+}
+class test{
+    test(){
+        System.out.println("Called from new test class");
+    }
+}
+
+
+/**
+ * Q44. Static Block
+ * The static keyword is a non-access modifier used for methods and attributes.
+ * Static methods/attributes can be accessed without creating an object of a class.
+ *
+ * When a member is declared static, it can be accessed before any objects of its class are created,
+ * and without reference to any object. For example, in the below java program,
+ * we are accessing static method m1() without creating any object of the Test class.
+ *
+ * Static variables are created when the program starts and destroyed when the program stops.
+ * Static variables can be accessed by calling with the class name ClassName.VariableName.
+ *
+ * In Java, a static variable is a class variable (for whole class). So if we have static local variable (a variable with scope limited to function),
+ * it violates the purpose of static. Hence, compiler does not allow static local variable.
+ */
+class O44_Static_Block {
+    public static void main(String[] args) {
+        m1();
+    }
+
+    // static method
+    static void m1() {
+        // static final int a = 10; // Not allow
+        System.out.println("Called from m1 static method");
+    }
+}
+
+/**
+ * Q43. Length, Length(), concat
+ * <p>
+ * array.length: length is a final variable applicable for arrays. With the help of the length variable, we can obtain the size of the array.
+ * <p>
+ * string.length() : length() method is a final variable which is applicable for string objects.
+ * The length() method returns the number of characters present in the string.
+ */
+class O43_StringLength {
+    public static void main(String[] args) {
+
+        // Here array is the array name of int type
+        int[] array = new int[4];
+        System.out.println("The size of the array is " + array.length);
+
+        // Here str is a string object
+        String str = "Geeks for Geeks";
+        System.out.println("The size of the String is " + str.length());
+
+        // String with concat
+        System.out.println(str.concat(", Is for Fun"));
+    }
+}
+
+/**
+ * Q41. String Lowercase
+ * Q42. Creating method
+ */
+class O41_42_String_Lowercase_Uppercase_WithMethod {
+    public static void main(String[] args) {
+        String s1 = "My name is Sajon. My name is Imtiaz. My name is Akash.";
+        lowerCase(s1);
+        upperCase(s1);
+
+    }
+
+    static void lowerCase(String s) {
+        System.out.println(s.toLowerCase());
+    }
+
+    static void upperCase(String s) {
+        System.out.println(s.toUpperCase());
+    }
+}
+
+/**
+ * Q38 . String replace occurrence word and
+ * Q39. split string
+ * Q40. Remove space from string
+ */
+class O38_39_40_Replace_Split_Trim_String {
+    public static void main(String[] args) {
+
+        String s1 = "My name is Sajon. My name is Imtiaz. My name is Akash.";
+
+        //replaces all occurrences of "is" to "was"
+        String replaceString = s1.replaceAll("is", "was");
+        System.out.println(replaceString);
+        System.out.println();
+
+        // String split and store into array
+        String[] sArray = s1.split(" ");
+        for (String s : sArray) {
+            System.out.println(s);
+        }
+        System.out.println();
+
+        // Remove space both end and start
+        String stringSpace = " hello string ";
+        System.out.println("-->" + stringSpace + "Technolamror");//without trim()
+        System.out.println("-->" + stringSpace.trim() + "Technolamror");//with trim()
+
+    }
+}
+
+/**
+ * Q35 36 37. string compare, boolean value, indexing
+ * More on Q15
+ * Alphabetically comes first = +
+ * Alphabetically comes second = -
+ * Both are equal = 0
+ * <p>
+ * I = 73, i = 105, 73-105=-32, H = 72, I = 73, Hossain(72) - Imtiaz(73) = -1
+ */
+class O35_36_37_StringCompare_Index_Boolean {
+    public static void main(String[] args) {
+        String one = "Imtiaz", two = "imtiaz", three = "Hossain", four = "Imtiaz";
+        System.out.println(one.compareTo(two)); // == -32
+        System.out.println(one.compareTo(three)); // == 1
+        System.out.println(one.compareTo(four)); // == 0
+        System.out.println(two.compareTo(three)); // == 33
+        System.out.println(three.compareTo(four)); // == -1
+        System.out.println();
+
+        // Boolean value of occurance
+        System.out.println(one.endsWith("z")); // t
+        System.out.println(one.endsWith("Z")); // f
+        System.out.println();
+
+        // Find Index
+        System.out.println(one.indexOf("t")); // 2
+        System.out.println(one.indexOf("T")); // -1 because it is not present in the string
+    }
+}
+
+/**
+ * Q32. Matrix Sum and Sub
+ */
+class O32_Matrix {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int row = 2, col = 2;
+
+        int[][] firstMatrix = new int[row][col];
+        int[][] secondMatrix = new int[row][col];
+
+        int[][] sumOfMatrix = new int[row][col];
+        int[][] subOfMatrix = new int[row][col];
+
+        System.out.println("Enter first matrix element: ");
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                firstMatrix[i][j] = input.nextInt();
+            }
+        }
+
+        System.out.println("Enter second matrix element: ");
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                secondMatrix[i][j] = input.nextInt();
+            }
+        }
+
+        // Sum of 2 matrix and store it
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                sumOfMatrix[i][j] = firstMatrix[i][j] + secondMatrix[i][j]; // Just change here
+            }
+        }
+
+        System.out.println("Summation: ");
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                System.out.print(sumOfMatrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
+
+        // Sub of 2 matrix and store it
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                subOfMatrix[i][j] = firstMatrix[i][j] - secondMatrix[i][j]; // Just change here
+            }
+        }
+
+        System.out.println("Subtraction: ");
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                System.out.print(subOfMatrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
+    }
+}
+
+/**
+ * Q31. Number palindrome or not and number reverse.
+ */
+class O31_NumberPalindrome_NumberReverse {
+    public static void main(String[] args) {
+        int i = 4546;
+        String originalString = String.valueOf(i), reverseString = "";
+        StringBuffer stringBuffer = new StringBuffer(originalString);
+        reverseString = String.valueOf(stringBuffer.reverse());
+
+        if (originalString.equals(reverseString)) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not Palindrome");
+        }
+
+        StringBuffer sb = new StringBuffer(String.valueOf(i));
+        System.out.println(sb.reverse());
+
+    }
+}
+
+/**
+ * Q29_30. Working with Substring
+ * <p>
  * i. All substring
  * ii. Substring with range
  * iii. Last substring check
- * iv. String Palindrome or not
+ * iv. String Palindrome or not (Original String == Reverse String)
+ * v. Integer Reverse
+ * vi. Reverse String With StringBuffer
  */
 
-class O29_Substring {
+class O29_O30_Substring_ReverseString {
     public static void main(String[] args) {
+
         //--------------------------------   Find all substring
         String string = "Imtiaz";
         String sub;
@@ -36,7 +346,7 @@ class O29_Substring {
         System.out.println("\n");
 
         //------------------------------    Surname check or find out which last name is Sing
-        String listOfName[] = {"Praveen Kumar", "Virat Singh", "Harbhajan Singh", "Gurjit Singh", "Virat Kohli", "Rohit Sharma", "Sandeep Singh", "Milkha Singh"};
+        String listOfName[] = {"Virat Singh", "Harbhajan Singh", "Gurjit Singh", "Virat Kohli", "Rohit Sharma", "Sandeep Singh", "Milkha Singh"};
         String surName = "Singh";
 
         for (int j = 0; j < listOfName.length; j++) {
@@ -52,15 +362,35 @@ class O29_Substring {
         String originalString = "madam";
         String reverseString = "";
 
-        for (int i = originalString.length()-1 ; i >= 0 ; i--){
+        for (int i = originalString.length() - 1; i >= 0; i--) {
             reverseString = reverseString + originalString.charAt(i);
         }
-        if (originalString.equals(reverseString)){
+        if (originalString.equals(reverseString)) {
             System.out.println("palindrome");
-        }else
+        } else
             System.out.println("Not palindrome");
+        System.out.println("\n");
 
 
+        // --------------------------------  Integer Palindrome Or not
+        int j = 548;
+        String r = "", s = String.valueOf(j);
+        for (int i = s.length() - 1; i >= 0; i--) {
+            r = r + s.charAt(i);
+        }
+        System.out.println(r);
+        if (s.equals(r)) {
+            System.out.println("P");
+        } else {
+            System.out.println("Not P");
+        }
+        System.out.println("\n");
+
+
+        // ----------------------------------   StringBuffer is a class that we can easily reverse a string
+        String sb = "StringBuffer";
+        StringBuffer stringBuffer = new StringBuffer(sb);
+        System.out.println(stringBuffer.reverse());
     }
 }
 
@@ -121,7 +451,6 @@ class O26 {
             System.out.println(num + " is a prime number.");
         else
             System.out.println(num + " is not a prime number.");
-
     }
 }
 
@@ -297,8 +626,6 @@ class O19 {
             System.out.println(i);
             i++;
         } while (i >= 10);
-
-
     }
 }
 
@@ -355,6 +682,8 @@ class O16 {
 }
 
 /**
+ * Q15. String compare with different way
+ * <p>
  * We can compare String in Java on the basis of content and reference.
  * <p>
  * 1)  equals() Method:
@@ -373,7 +702,7 @@ class O16 {
  * String interning: Basically doing String.intern() on a series of strings will ensure that all strings having same contents share same memory.
  * So if you have list of names where 'john' appears 1000 times, by interning you ensure only one 'john' is actually allocated memory.
  */
-class O15 {
+class O15_StringCompare {
     public static void main(String[] args) {
 
         String first = "Imtiaz";
