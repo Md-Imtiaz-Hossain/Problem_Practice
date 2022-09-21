@@ -1,21 +1,242 @@
 package interview.O2_basic_to_advance.part_1_1_to_100;
 
+import java.io.IOException;
 import java.math.BigInteger;
-import java.sql.Timestamp;
-import java.time.LocalTime;
-import java.util.Date;
+import java.net.Inet4Address;
+import java.net.Inet6Address;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
 /**
- * Q53 54 55. Working with date time
- *
+ * Q99. Factorial Using recursion
  */
-class O53_54_55_DateTime{
+class O99_Factorial {
+    public static void main(String[] args) {
+        System.out.println(factorial(5));
+    }
+
+    static int factorial(int i) {
+        if (i == 1) return 1;
+        else return (i * factorial(i - 1));
+    }
+}
+
+/**
+ * Q98. 2D Array
+ */
+class O98_TwoDArray {
+    public static void main(String[] args) {
+        int[][] intArray = {{1, 2}, {3, 4}, {5, 6}};
+        System.out.println("Initialized Two dimensional array:");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 2; j++) {
+                System.out.print(intArray[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+/**
+ * Q97. One D Array
+ */
+class O97_OneDArray {
+    public static void main(String[] args) {
+        int[] arr;
+        arr = new int[5];
+        arr[0] = 10;
+        arr[1] = 20;
+        arr[2] = 30;
+        arr[3] = 40;
+        arr[4] = 50;
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println("Element at index " + i + " " + arr[i]);
+        }
+    }
+}
+
+/**
+ * Q62. Bubble sort
+ */
+class O62_BubbleSort {
+    public static void main(String[] args) {
+        int arr[] = {3, 60, 35, 2, 45, 320, 5};
+
+        System.out.println("Array Before Bubble Sort");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+
+        bubbleSort(arr);//sorting array elements using bubble sort
+        System.out.println("Array After Bubble Sort");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+    static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        int temp = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < (n - i); j++) {
+                if (arr[j - 1] > arr[j]) {
+                    //swap elements
+                    temp = arr[j - 1];
+                    arr[j - 1] = arr[j];
+                    arr[j] = temp;
+                }
+
+            }
+        }
+    }
+}
+
+/**
+ * Q61. Binary Search
+ * <p>
+ * Array must be sorted
+ */
+class O61_BinarySearch {
+    public static void main(String[] args) {
+        int arr[] = {500, 10, 20, 30, 40, 50};
+        Arrays.sort(arr);
+        for (int s : arr) {
+            System.out.print(s + " ");
+        }
+        int key = 30;
+        int last = arr.length - 1;
+        System.out.println();
+        binarySearch(arr, 0, last, key);
+    }
+
+    public static void binarySearch(int arr[], int first, int last, int key) {
+        int mid = (first + last) / 2;
+        while (first <= last) {
+            if (arr[mid] < key) {
+                first = mid + 1;
+            } else if (arr[mid] == key) {
+                System.out.println("Element is found at index: " + mid);
+                break;
+            } else {
+                last = mid - 1;
+            }
+            mid = (first + last) / 2;
+        }
+
+        if (first > last) {
+            System.out.println("Element is not found!");
+        }
+    }
+}
+
+/**
+ * Q60
+ */
+class O60_LinearSearch {
+    public static void main(String[] args) {
+        int[] a1 = {10, 20, 30, 50, 70, 90};
+        int key = 50;
+        System.out.println(key + " is found at index: " + linearSearch(a1, key));
+    }
+
+    public static int linearSearch(int[] arr, int key) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == key) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+
+/**
+ * Q59. How to open notepad
+ */
+class O59_Notepad {
+    public static void main(String[] args) {
+        Runtime rs = Runtime.getRuntime();
+        try {
+            rs.exec("notepad");
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+}
+
+/**
+ * Q57. Garbage collection
+ * Q58. Ip address
+ * <p>
+ * Java garbage collection is the process by which Java programs perform automatic memory management.
+ * Java programs compile to bytecode that can be run on a Java Virtual Machine, or JVM for short.
+ * When Java programs run on the JVM, objects are created on the heap, which is a portion of memory
+ * dedicated to the program. Eventually, some objects will no longer be needed. The garbage collector
+ * finds these unused objects and deletes them to free up memory.
+ */
+class O57_GarbageCollection_IPAddress {
+    public static void main(String[] args) throws UnknownHostException {
+
+        Runtime rs = Runtime.getRuntime();
+        System.out.println("Free memory in JVM before Garbage Collection = " + rs.freeMemory());
+        rs.gc();
+        System.out.println("Free memory in JVM after Garbage Collection =  " + rs.freeMemory());
+        System.out.println();
+
+        // Get IP address
+        System.out.println(InetAddress.getLocalHost());
+        System.out.println(Inet4Address.getLocalHost());
+        System.out.println(Inet6Address.getLocalHost());
+    }
+}
+
+/**
+ * Q56. Random number
+ * <p>
+ * Random number default value is (0.0 to 1.0)
+ */
+class O56_RandomNumber {
+    public static void main(String[] args) {
+
+
+        // Default random and multiply with 5, and cast into int
+        for (int i = 0; i < 10; i++) {
+            System.out.println((int) (Math.random() * 5));
+        }
+        System.out.println();
+
+
+        DecimalFormat df = new DecimalFormat("##.##");
+        Random random = new Random();
+        // Random number generate with 1 to 50
+        for (int i = 0; i < 10; i++) {
+            System.out.println(df.format(random.nextInt(50)));
+        }
+
+
+        // Infinite time generate random number
+//        random.ints(0, 49)
+//                .forEach((i) -> {
+//                    System.out.println(i + 1);
+//                });
+    }
+}
+
+/**
+ * Q53 54 55. Working with date time
+ */
+class O53_54_55_DateTime {
     public static void main(String[] args) {
 
         // import java.time.LocalDateTime;
@@ -37,23 +258,23 @@ class O53_54_55_DateTime{
 
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         String strDate = formatter.format(date);
-        System.out.println("Date Format with MM/dd/yyyy : "+strDate);
+        System.out.println("Date Format with MM/dd/yyyy : " + strDate);
 
         formatter = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
         strDate = formatter.format(date);
-        System.out.println("Date Format with dd-M-yyyy hh:mm:ss : "+strDate);
+        System.out.println("Date Format with dd-M-yyyy hh:mm:ss : " + strDate);
 
         formatter = new SimpleDateFormat("dd MMMM yyyy");
         strDate = formatter.format(date);
-        System.out.println("Date Format with dd MMMM yyyy : "+strDate);
+        System.out.println("Date Format with dd MMMM yyyy : " + strDate);
 
         formatter = new SimpleDateFormat("dd MMMM yyyy zzzz");
         strDate = formatter.format(date);
-        System.out.println("Date Format with dd MMMM yyyy zzzz : "+strDate);
+        System.out.println("Date Format with dd MMMM yyyy zzzz : " + strDate);
 
         formatter = new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss z");
         strDate = formatter.format(date);
-        System.out.println("Date Format with E, dd MMM yyyy HH:mm:ss z : "+strDate);
+        System.out.println("Date Format with E, dd MMM yyyy HH:mm:ss z : " + strDate);
     }
 }
 
@@ -65,42 +286,44 @@ class O52_Interface implements shape {
         O52_Interface i = new O52_Interface();
         i.draw();
     }
+
     @Override
     public void draw() {
         System.out.println("Draw a Circle");
     }
 }
-interface shape{
+
+interface shape {
     void draw();
 }
 
 /**
- *  Q49. Exception handling
- *  Q50. Throw exception
- *  Q51. finally block
- *
+ * Q49. Exception handling
+ * Q50. Throw exception
+ * Q51. finally block
+ * <p>
  * Final VS Finally VS Finalize:
  * final is the keyword and access modifier which is used to apply restrictions on a class, method or variable.
  * Once declared, final variable becomes constant and cannot be modified. final method cannot be overridden by subclass. final class cannot be inherited.
- *
+ * <p>
  * finally is the block in Java Exception Handling to execute the important code whether the exception occurs or not.
  * Finally, block is always related to the try and catch block in exception handling. finally block cleans up all the resources used in try block
- *
+ * <p>
  * finalize method performs the cleaning activities with respect to the object before its destruction.
  * Finalize is the method in Java which is used to perform clean up processing just before object is garbage collected.
  * finalize method is executed just before the object is destroyed.
  */
-class O49_50_51_Exception{
+class O49_50_51_Exception {
     public static void main(String[] args) {
         int a = 5;
         int b = 2;
 
         // Exception handling
-        try{
-            System.out.println(a/b);
-        }catch (Exception e){
+        try {
+            System.out.println(a / b);
+        } catch (Exception e) {
             System.out.println("Division by zero");
-        }finally {
+        } finally {
             System.out.println("Finally Block always execute."); // Finally block
         }
 
@@ -109,8 +332,9 @@ class O49_50_51_Exception{
         validate(-3);
 
     }
-    static void validate(int age){
-        if(age<0)
+
+    static void validate(int age) {
+        if (age < 0)
             throw new ArithmeticException("not valid");
         else
             System.out.println("welcome to vote on Dynamic solution");
@@ -121,18 +345,22 @@ class O49_50_51_Exception{
 /**
  * Q47 48. constructor and overloading
  */
-class O47_48_Constructor_Overloading{
+class O47_48_Constructor_Overloading {
 
     private String name;
-    void O45_Static_Instance_Method(){
+
+    void O45_Static_Instance_Method() {
         System.out.println("Constructor method called");
     }
+
     public O47_48_Constructor_Overloading(String name) {
         this.name = name;
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -145,7 +373,6 @@ class O47_48_Constructor_Overloading{
     }
 
 
-
 }
 
 /**
@@ -153,7 +380,7 @@ class O47_48_Constructor_Overloading{
  * Q46. Create multiple class
  */
 
-class O45_Static_Instance_Method{
+class O45_Static_Instance_Method {
     public static void main(String[] args) {
         // No need to create object
         m1();
@@ -164,15 +391,18 @@ class O45_Static_Instance_Method{
 
         test t = new test();
     }
+
     static void m1() {
         System.out.println("Called from m1 static method");
     }
-    void m2(){
+
+    void m2() {
         System.out.println("Called from m2 instance method");
     }
 }
-class test{
-    test(){
+
+class test {
+    test() {
         System.out.println("Called from new test class");
     }
 }
@@ -182,14 +412,14 @@ class test{
  * Q44. Static Block
  * The static keyword is a non-access modifier used for methods and attributes.
  * Static methods/attributes can be accessed without creating an object of a class.
- *
+ * <p>
  * When a member is declared static, it can be accessed before any objects of its class are created,
  * and without reference to any object. For example, in the below java program,
  * we are accessing static method m1() without creating any object of the Test class.
- *
+ * <p>
  * Static variables are created when the program starts and destroyed when the program stops.
  * Static variables can be accessed by calling with the class name ClassName.VariableName.
- *
+ * <p>
  * In Java, a static variable is a class variable (for whole class). So if we have static local variable (a variable with scope limited to function),
  * it violates the purpose of static. Hence, compiler does not allow static local variable.
  */
@@ -948,9 +1178,8 @@ class O6 {
 
 /**
  * Q5: Temperature converter
- * <p>
+ *
  * Note:
- * <p>
  * Celsius to Kelvin: K = C + 273.15
  * Kelvin to Celsius: C = K - 273.15
  * Fahrenheit to Celsius: C = (F-32) (5/9)
@@ -973,7 +1202,7 @@ class O5 {
 
 /**
  * Q4. Take Big Number and print
- * <p>
+ *
  * Note:
  * BigInteger must support values in the range -2^Integer.MAX_VALUE (exclusive) to +2^Integer.MAX_VALUE (exclusive) and
  * may support values outside that range. The range of probable prime values is limited and
@@ -993,26 +1222,26 @@ class O4 {
 
 /**
  * Q3. Command Line Argument
- * <p>
+ *
  * Note:
  * 1. Public
  * It is an Access modifier, which specifies from where and who can access the method.
  * Making the main() method public makes it globally available. It is made public
  * so that JVM can invoke it from outside the class as it is not present in the current class.
- * <p>
+ *
  * 2. Static
  * It is a keyword that is when associated with a method, making it a class-related method.
  * The main() method is static so that JVM can invoke it without instantiating the class.
  * This also saves the unnecessary wastage of memory which would have been used by the object declared only for calling the main() method by the JVM.
- * <p>
+ *
  * 3. Void
  * It is a keyword and is used to specify that a method doesn’t return anything. As the main() method doesn’t return anything,
  * its return type is void. As soon as the main() method terminates, the java program terminates too.
  * Hence, it doesn’t make any sense to return from the main() method as JVM can’t do anything with the return value of it.
- * <p>
+ *
  * 4. main
  * It is the name of the Java main method. It is the identifier that the JVM looks for as the starting point of the java program. It’s not a keyword.
- * <p>
+ *
  * 5. String[] args
  * It stores Java command-line arguments and is an array of type java.lang.String class.
  * Here, the name of the String array is args, but it is not fixed and the user can use any name in place of it.
@@ -1026,9 +1255,8 @@ class O3 {
 }
 
 /**
- * =======================================================================
  * Q2. Take value from user and print
- * <p>
+ *
  * Note:
  * After taking int value terminal didn't take next line value,
  * because when we enter a number then press Enter, input.nextInt() consumes only the number, not the "end of line".
@@ -1049,7 +1277,6 @@ class O2 {
 }
 
 /**
- * =======================================================================
  * Q1. Simple Java Program
  */
 class O1 {
