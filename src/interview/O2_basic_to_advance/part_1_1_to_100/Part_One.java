@@ -1,16 +1,96 @@
 package interview.O2_basic_to_advance.part_1_1_to_100;
 
 import java.math.BigInteger;
+import java.sql.Timestamp;
+import java.time.LocalTime;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
 /**
- *  Q49. Exception handling
- *  Q50. Throw exception
+ * Q53 54 55. Working with date time
  *
  */
-class O49_50_Exception{
+class O53_54_55_DateTime{
+    public static void main(String[] args) {
+
+        // import java.time.LocalDateTime;
+        //import java.time.format.DateTimeFormatter;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm:ss a");
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println(now);
+        System.out.println(dtf.format(now));
+
+        LocalTime myObj = LocalTime.now();
+        System.out.println(myObj);
+        System.out.println();
+
+
+        // import java.util.Date;
+        //import java.text.SimpleDateFormat;
+        Date date = new Date();
+        System.out.println("Date formate chnage by Technolamror ");
+
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        String strDate = formatter.format(date);
+        System.out.println("Date Format with MM/dd/yyyy : "+strDate);
+
+        formatter = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        strDate = formatter.format(date);
+        System.out.println("Date Format with dd-M-yyyy hh:mm:ss : "+strDate);
+
+        formatter = new SimpleDateFormat("dd MMMM yyyy");
+        strDate = formatter.format(date);
+        System.out.println("Date Format with dd MMMM yyyy : "+strDate);
+
+        formatter = new SimpleDateFormat("dd MMMM yyyy zzzz");
+        strDate = formatter.format(date);
+        System.out.println("Date Format with dd MMMM yyyy zzzz : "+strDate);
+
+        formatter = new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss z");
+        strDate = formatter.format(date);
+        System.out.println("Date Format with E, dd MMM yyyy HH:mm:ss z : "+strDate);
+    }
+}
+
+/**
+ * Q52. Interface (100% abstraction)
+ */
+class O52_Interface implements shape {
+    public static void main(String[] args) {
+        O52_Interface i = new O52_Interface();
+        i.draw();
+    }
+    @Override
+    public void draw() {
+        System.out.println("Draw a Circle");
+    }
+}
+interface shape{
+    void draw();
+}
+
+/**
+ *  Q49. Exception handling
+ *  Q50. Throw exception
+ *  Q51. finally block
+ *
+ * Final VS Finally VS Finalize:
+ * final is the keyword and access modifier which is used to apply restrictions on a class, method or variable.
+ * Once declared, final variable becomes constant and cannot be modified. final method cannot be overridden by subclass. final class cannot be inherited.
+ *
+ * finally is the block in Java Exception Handling to execute the important code whether the exception occurs or not.
+ * Finally, block is always related to the try and catch block in exception handling. finally block cleans up all the resources used in try block
+ *
+ * finalize method performs the cleaning activities with respect to the object before its destruction.
+ * Finalize is the method in Java which is used to perform clean up processing just before object is garbage collected.
+ * finalize method is executed just before the object is destroyed.
+ */
+class O49_50_51_Exception{
     public static void main(String[] args) {
         int a = 5;
         int b = 2;
@@ -20,6 +100,8 @@ class O49_50_Exception{
             System.out.println(a/b);
         }catch (Exception e){
             System.out.println("Division by zero");
+        }finally {
+            System.out.println("Finally Block always execute."); // Finally block
         }
 
         // Throw exception
