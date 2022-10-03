@@ -609,6 +609,7 @@ class O31_NumberPalindrome_NumberReverse {
     public static void main(String[] args) {
         int i = 4546;
         String originalString = String.valueOf(i), reverseString = "";
+
         StringBuffer stringBuffer = new StringBuffer(originalString);
         reverseString = String.valueOf(stringBuffer.reverse());
 
@@ -618,15 +619,14 @@ class O31_NumberPalindrome_NumberReverse {
             System.out.println("Not Palindrome");
         }
 
-        StringBuffer sb = new StringBuffer(String.valueOf(i));
-        System.out.println(sb.reverse());
-
+        System.out.println(originalString);
+        System.out.println(reverseString);
     }
 }
 
 /**
  * Q29_30. Working with Substring
- * <p>
+ *
  * i. All substring
  * ii. Substring with range
  * iii. Last substring check
@@ -649,7 +649,6 @@ class O29_O30_Substring_ReverseString {
         }
         System.out.println("\n");
 
-
         //-------------------------------   Find substring with range
         String string2 = "Khan";
         System.out.println(string2);
@@ -669,7 +668,6 @@ class O29_O30_Substring_ReverseString {
         }
         System.out.println("\n");
 
-
         // -------------------------------   String Palindrome or not
         String originalString = "madam";
         String reverseString = "";
@@ -683,10 +681,11 @@ class O29_O30_Substring_ReverseString {
             System.out.println("Not palindrome");
         System.out.println("\n");
 
-
         // --------------------------------  Integer Palindrome Or not
         int j = 548;
-        String r = "", s = String.valueOf(j);
+        String r = "";
+        String s = String.valueOf(j);
+
         for (int i = s.length() - 1; i >= 0; i--) {
             r = r + s.charAt(i);
         }
@@ -698,11 +697,39 @@ class O29_O30_Substring_ReverseString {
         }
         System.out.println("\n");
 
-
         // ----------------------------------   StringBuffer is a class that we can easily reverse a string
         String sb = "StringBuffer";
         StringBuffer stringBuffer = new StringBuffer(sb);
+        System.out.println(stringBuffer);
         System.out.println(stringBuffer.reverse());
+    }
+}
+
+/**
+ * Q28. Floyd's triangle
+ *
+ * Floyd's triangle, named after Robert Floyd, is a right-angled triangle,
+ * which is made using natural numbers. It starts at 1 and consecutively
+ * selects the next greater number in the sequence.
+ * 1
+ * 2 3
+ * 4 5 6
+ */
+
+class O28_FloydTriangle {
+    public static void main(String[] args) {
+        int n, num = 1, c, d;
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the number of rows of floyd's triangle you want");
+        n = in.nextInt();
+        System.out.println("Floyd's triangle :-");
+        for (c = 1; c <= n; c++) {
+            for (d = 1; d <= c; d++) {
+                System.out.print(num + " ");
+                num++;
+            }
+            System.out.println();
+        }
     }
 }
 
@@ -719,7 +746,7 @@ class O29_O30_Substring_ReverseString {
  * 1st Iteration: reminder = 2, sum = 125+8=133, number = 1
  * 1st Iteration: reminder = 1, sum = 133+1=134, number = 0 ; while function not execute
  */
-class O27 {
+class O27_ArmstrongOrNot {
     public static void main(String args[]) {
         int number = 153;
         int temp = number;
@@ -747,7 +774,7 @@ class O27 {
  * A prime number is a number that is divisible by only two numbers: 1 and itself.
  * So, if any number is divisible by any other number, it is not a prime number.
  */
-class O26 {
+class O26_PrimeOrNot {
     public static void main(String[] args) {
 
         int num = 10;
@@ -769,7 +796,7 @@ class O26 {
 /**
  * Q25. Multiplication table
  */
-class O25 {
+class O25_MultiplicationTable {
     public static void main(String[] args) {
         int c = 5;
         for (int i = 1; i <= 10; i++) {
@@ -790,7 +817,7 @@ class O25 {
  * we can replace elements at any specific index // we don’t have access to the index, so we cannot replace elements at any specific index.
  * we can print array elements either in the original order or in reverse order //  we can print array element only in the original order, not in reverse order
  */
-class O24 {
+class O24_EnhancedForLoop {
     public static void main(String[] args) {
 
         int primes[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
@@ -810,7 +837,7 @@ class O24 {
 /**
  * Q23. Working with ASCII Table
  */
-class O23 {
+class O23_AsciiTableValue {
     public static void main(String[] args) {
         char character;
 
@@ -856,7 +883,7 @@ class O23 {
  * 0 1 2 3 4
  * 0 1 2 3 4 6 7 8 9
  */
-class O21_O22 {
+class O21_O22_ContinueBreak {
     public static void main(String[] args) {
         // Break
         for (int i = 0; i < 10; i++) {
@@ -886,7 +913,7 @@ class O21_O22 {
  * 2. reminder = 4(14%10), result = 54(5*10+4), number = 1(14/10)
  * 3. reminder = 1(1%10), result = 541(54*10+1), number = .1(1/10)
  */
-class O20 {
+class O20_NumberReverse {
     public static void main(String[] args) {
         int number = 145;
         int sum = 0;
@@ -919,7 +946,7 @@ class O20 {
  * While loop: when condition is fulfill then print out the result
  * Do while: Though condition in not fulfill loop run one time.
  */
-class O19 {
+class O19_WhileDoWhileLoop {
     public static void main(String[] args) {
 
         // While loop
@@ -941,7 +968,7 @@ class O19 {
     }
 }
 
-class O18 {
+class O18_PatternPyramid {
     public static void main(String[] args) {
         int rows = 5;
         for (int i = 0; i <= rows - 1; i++) {
@@ -957,7 +984,7 @@ class O18 {
 }
 
 
-class O17 {
+class O17_PatternWithStarTriangle {
     public static void main(String[] args) {
         int row = 10;
         for (int i = 0; i < row; i++) {
@@ -977,7 +1004,7 @@ class O17 {
 /**
  * Q16. Simple Loop using normal for loop and functional programming
  */
-class O16 {
+class O16_Loop {
     public static void main(String[] args) {
         for (int i = 0; i <= 10; i++) {
             System.out.print(i + " ");
@@ -1045,6 +1072,7 @@ class O15_StringCompare {
         System.out.println(first == five);
         System.out.println(six == fourth);
         System.out.println(first == seven);
+
         // why it returns true --> https://stackoverflow.com/questions/10578984/what-is-java-string-interning
         // https://en.wikipedia.org/wiki/String_interning#:~:text=In%20computer%20science%2C%20string%20interning,string%20is%20created%20or%20interned.
     }
@@ -1053,7 +1081,7 @@ class O15_StringCompare {
 /**
  * Q14. Factorial
  */
-class O14 {
+class O14_Factorial {
     public static void main(String[] args) {
         int number = 5;
         int sum = 1;
@@ -1071,7 +1099,7 @@ class O14 {
 /**
  * Odd and Even Number
  */
-class O13 {
+class O13_OddEven {
     public static void main(String[] args) {
         int number = 20;
         if (number % 2 == 0) {
@@ -1085,7 +1113,7 @@ class O13 {
 /**
  * Nested If else
  */
-class O11_O12 {
+class O11_O12_IfElse {
     public static void main(String[] args) {
         int passMark = 40, marksObtained;
         char grade;
@@ -1113,7 +1141,7 @@ class O11_O12 {
 /**
  * Q10. If Else
  */
-class O10 {
+class O10_IfElse {
     public static void main(String[] args) {
         boolean learning = true;
         if (learning) {
@@ -1127,7 +1155,7 @@ class O10 {
 /**
  * Q9. Find the largest number from array.
  */
-class O9 {
+class O9_LargeNumberFind {
     public static void main(String[] args) {
         int[] a = {5, 8, 11, 1, 55};
         int max = 0;
@@ -1143,7 +1171,7 @@ class O9 {
 /**
  * Q8. How to add two number Program in java.
  */
-class O8 {
+class O8_AddNumber {
     public static void main(String[] args) {
         int a = 5, b = 8;
         System.out.println(a + b);
@@ -1153,19 +1181,25 @@ class O8 {
 /**
  * Q7. How to swap 2 no not using 3rd variable Program in java
  */
-class O7 {
+class O7_SwapWithoutExtraVar {
     public static void main(String[] args) {
         int a = 5, b = 6;
         System.out.println(a + " " + b);
         a = (a * b) / (b = a);
         System.out.println(a + " " + b);
+        System.out.println();
+
+        int c = 50, d = 100;
+        System.out.println(c + " " + d);
+        c = c ^ d ^ (d = c);
+        System.out.println(c + " " + d);
     }
 }
 
 /**
  * Q6. How to swap 2 no using 3rd variable Program in java
  */
-class O6 {
+class O6_SwapWithExtraVar {
     public static void main(String[] args) {
         int a = 5, b = 6, temp;
         temp = a;
@@ -1175,10 +1209,9 @@ class O6 {
     }
 }
 
-
 /**
  * Q5: Temperature converter
- *
+ * <p>
  * Note:
  * Celsius to Kelvin: K = C + 273.15
  * Kelvin to Celsius: C = K - 273.15
@@ -1187,7 +1220,7 @@ class O6 {
  * Fahrenheit to Kelvin: K = (F-32) (5/9) + 273.15
  * Kelvin to Fahrenheit: F = (K-273.15) (9/5) + 32
  */
-class O5 {
+class O5_TemperatureConverter {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter Temperature in Fahrenheit: ");
@@ -1202,13 +1235,13 @@ class O5 {
 
 /**
  * Q4. Take Big Number and print
- *
+ * <p>
  * Note:
  * BigInteger must support values in the range -2^Integer.MAX_VALUE (exclusive) to +2^Integer.MAX_VALUE (exclusive) and
  * may support values outside that range. The range of probable prime values is limited and
  * may be less than the full supported positive range of BigInteger. The range must be at least 1 to 2^500000000.
  */
-class O4 {
+class O4_BigNumber {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String bigNumber = input.nextLine();
@@ -1222,31 +1255,31 @@ class O4 {
 
 /**
  * Q3. Command Line Argument
- *
+ * <p>
  * Note:
  * 1. Public
  * It is an Access modifier, which specifies from where and who can access the method.
  * Making the main() method public makes it globally available. It is made public
  * so that JVM can invoke it from outside the class as it is not present in the current class.
- *
+ * <p>
  * 2. Static
  * It is a keyword that is when associated with a method, making it a class-related method.
  * The main() method is static so that JVM can invoke it without instantiating the class.
  * This also saves the unnecessary wastage of memory which would have been used by the object declared only for calling the main() method by the JVM.
- *
+ * <p>
  * 3. Void
  * It is a keyword and is used to specify that a method doesn’t return anything. As the main() method doesn’t return anything,
  * its return type is void. As soon as the main() method terminates, the java program terminates too.
  * Hence, it doesn’t make any sense to return from the main() method as JVM can’t do anything with the return value of it.
- *
+ * <p>
  * 4. main
  * It is the name of the Java main method. It is the identifier that the JVM looks for as the starting point of the java program. It’s not a keyword.
- *
+ * <p>
  * 5. String[] args
  * It stores Java command-line arguments and is an array of type java.lang.String class.
  * Here, the name of the String array is args, but it is not fixed and the user can use any name in place of it.
  */
-class O3 {
+class O3_JavaTemplateExplain {
     public static void main(String[] f) {
         System.out.println(f);
         for (String elem : f)
@@ -1256,13 +1289,13 @@ class O3 {
 
 /**
  * Q2. Take value from user and print
- *
+ * <p>
  * Note:
  * After taking int value terminal didn't take next line value,
  * because when we enter a number then press Enter, input.nextInt() consumes only the number, not the "end of line".
  * When input.nextLine() executes, it consumes the "end of line" still in the buffer from the first input.
  */
-class O2 {
+class O2_PrintIntString {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter Your Name: ");
@@ -1279,7 +1312,7 @@ class O2 {
 /**
  * Q1. Simple Java Program
  */
-class O1 {
+class O1_SimpleJavaProgram {
     public static void main(String[] args) {
         System.out.println("Hello World");
     }
