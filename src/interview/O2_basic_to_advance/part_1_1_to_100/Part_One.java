@@ -635,7 +635,7 @@ class O31_NumberPalindrome_NumberReverse {
  * vi. Reverse String With StringBuffer
  */
 
-class O29_O30_Substring_ReverseString {
+class   O29_O30_Substring_ReverseString {
     public static void main(String[] args) {
 
         //--------------------------------   Find all substring
