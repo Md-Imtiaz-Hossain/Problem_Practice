@@ -1,4 +1,4 @@
-package books.O1_head_first_java_3rd_edition.chapter_11.comparator.interfacedemo;
+package books.O1_head_first_java_3rd_edition.chapter_11.O2_comparator.interfacedemo;
 
 import java.util.ArrayList;
 import java.util.Collections;

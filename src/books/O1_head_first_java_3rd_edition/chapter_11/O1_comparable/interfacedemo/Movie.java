@@ -1,4 +1,4 @@
-package interview.O2_basic_to_advance.comparable.interfacedemo;
+package books.O1_head_first_java_3rd_edition.chapter_11.O1_comparable.interfacedemo;
 
 import java.util.ArrayList;
 import java.util.Collections;

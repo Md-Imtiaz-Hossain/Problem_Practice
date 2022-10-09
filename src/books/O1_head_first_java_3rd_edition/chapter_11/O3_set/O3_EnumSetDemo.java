@@ -1,4 +1,4 @@
-package books.O1_head_first_java_3rd_edition.chapter_11.set;
+package books.O1_head_first_java_3rd_edition.chapter_11.O3_set;
 
 import java.util.EnumSet;
 import java.util.Set;

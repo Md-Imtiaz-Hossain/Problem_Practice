@@ -540,6 +540,12 @@ class O35_36_37_StringCompare_Index_Boolean {
     }
 }
 
+class O33_MatrixMultiply{
+    public static void main(String[] args) {
+        
+    }
+}
+
 /**
  * Q32. Matrix Sum and Sub
  */

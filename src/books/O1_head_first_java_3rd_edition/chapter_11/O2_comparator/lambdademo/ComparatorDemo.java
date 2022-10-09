@@ -1,10 +1,10 @@
-package books.O1_head_first_java_3rd_edition.chapter_11.comparable.lambdademo;
+package books.O1_head_first_java_3rd_edition.chapter_11.O2_comparator.lambdademo;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-class ComparableWithLambda {
+class ComparatorWithLambda {
     public static void main(String[] args) {
 
         List<Employee> employees = new ArrayList<>();
@@ -19,13 +19,17 @@ class ComparableWithLambda {
         employees.add(new Employee(9, "Vishu", "Bissi", 33));
         employees.add(new Employee(10, "Lokesh", "Ramachandran", 60));
 
-        //Sort all employees by first name
-        employees.sort(Comparator.comparing(e -> e.getFirstName()));
+        // Way one:
+        Comparator<Employee> d = Comparator.comparing(employee -> employee.getFirstName()
+                .compareTo(employee.getLastName()));
 
-        // Another way
-        employees.sort(Comparator.comparing(Employee::getFirstName));
+        // Way Two: Sorting on multiple fields; Group by.
+        Comparator<Employee> groupByComparator = Comparator.comparing(Employee::getFirstName)
+                .thenComparing(Employee::getLastName);
 
-        //Let's print the sorted list
+        employees.sort(groupByComparator);
+        System.out.println(employees);
+        employees.sort(d);
         System.out.println(employees);
     }
 }
@@ -44,31 +48,38 @@ class Employee {
     }
 
     //Other getter and setter methods
-
     public Integer getId() {
         return id;
     }
+
     public void setId(Integer id) {
         this.id = id;
     }
+
     public String getFirstName() {
         return firstName;
     }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+
     public String getLastName() {
         return lastName;
     }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
     public Integer getAge() {
         return age;
     }
+
     public void setAge(Integer age) {
         this.age = age;
     }
+
     @Override
     public String toString() {
         return "\n[" + this.id + "," + this.firstName + "," + this.lastName + "," + this.age + "]";
